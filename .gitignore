@@ -1,0 +1,9 @@
+/airflow/dags/__pycache__
+/airflow/logs/*
+/airflow/plugins/*
+/airflow/scripts/*
+
+/spark/app/covid19_global_time_series/modules/__pycache__
+/spark/resources/covid19_global_time_series/csv_output
+/spark/resources/movies/csv_output
+/spark/resources/R2DE_example/csv_output
