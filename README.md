@@ -1,4 +1,4 @@
-# Pipeline training
+# Data-pipeline with Spark and Airflow
 
 This project contains the following containers:
 
