@@ -69,8 +69,6 @@ default_args = {
     "email": ["katawut.p@outlook.com"],
     "email_on_failure": False,
     "email_on_retry": False,
-    "retries": 5,
-    "retry_delay": timedelta(minutes=5),
 }
 
 dag = DAG(
@@ -83,13 +81,13 @@ dag = DAG(
 start = DummyOperator(task_id = "start", dag = dag)
 
 get_data_from_source = PythonOperator(
-        task_id='get_data_from_source', 
+        task_id='stg_covid19_global_data', 
         python_callable=get_data,
         dag=dag
     )
 
 read_data = SparkSubmitOperator(
-    task_id = "read_data",
+    task_id = "covid19_global_data_csv",
     application = "/usr/local/spark/app/covid19_global_time_series/read_data.py",
     name = "read_data",
     conn_id = "spark_default",
@@ -104,7 +102,7 @@ read_data = SparkSubmitOperator(
     dag = dag)
 
 read_data_thai = SparkSubmitOperator(
-    task_id = "read_data_thai",
+    task_id = "covid19_thailand_data_csv",
     application = "/usr/local/spark/app/covid19_global_time_series/read_data_thai.py",
     name = "read_data_thai",
     conn_id = "spark_default",
