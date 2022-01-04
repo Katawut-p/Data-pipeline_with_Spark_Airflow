@@ -1,4 +1,4 @@
-# Pipeline training
+# Data-pipeline with Spark and Airflow
 
 This project contains the following containers:
 
@@ -29,7 +29,7 @@ This project contains the following containers:
 
     $ https://github.com/Katawut-p/pipeline_training.git
 
-### Build airflow Docker
+### Build airflow-spark
 
     execute this command
     docker build --rm --force-rm -t airflow-spark:2.2.1_3.1.2 .
